@@ -156,29 +156,60 @@ namespace FitnessGoal_v1._0
             scroll.Content = layoutALL;
             Content = scroll;
 
+            savebtn.Clicked += savebtn_Clicked;
         }
 
         public async void savebtn_Clicked(object sender, EventArgs args)
         {
-            register = new Registration
-            {
-               email = EEmail.Text
-            };
+            //register = new Registration
+            //{
+            //   email = EEmail.Text
+            //};
 
             pdm = new PersonalDetailModel 
             {
-                age = Eage.Text,
+                age = Convert.ToInt32(Eage.Text),
                 gender = EGender.Text
             };
 
             bcm = new BodyCompositionModel 
             {
-                hip = EHip.Text,
-                waist = EWaist.Text,
-                forearm = Eforearm.Text,
-                weight = Eweight.Text,
-                height = Eheight.Text
+                hip = Convert.ToDouble(EHip.Text),
+                waist = Convert.ToDouble(EWaist.Text),
+                forearm = Convert.ToDouble(Eforearm.Text),
+                weight = Convert.ToDouble(Eweight.Text),
+                height = Convert.ToDouble(Eheight.Text)
             };
+
+            //not yet add EEmail.Text
+            if(EHip.Text.Equals("") || EWaist.Text.Equals("") || Eforearm.Text.Equals("")
+                || Eweight.Text.Equals("") || Eheight.Text.Equals("") || Eage.Text.Equals(""))
+            {
+                await DisplayAlert("Alert","Entry is not completed","Close");
+            }
+            else if (EGender.Text != "M" || EGender.Text != "F" || EGender.Text.Equals(""))
+            {
+                await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
+            }
+            else 
+            {
+                try 
+                {
+                    bool x;
+                    x = await pdvm.AddPersonalDetail(pdm, bcm);
+                    if (x == true)
+                    {
+                        await DisplayAlert("Personal Detail", "Detail Saved", "Close");
+ 
+                    }else
+                        await DisplayAlert ("Alert","Failed to save","Close");
+                    
+                }
+                catch (Exception e)
+                {
+                    throw;
+                }
+            }
         }
     }
 }

@@ -8,6 +8,15 @@ namespace FitnessGoal_v1._0
 {
     public class PersonalDetailModel
     {
+        public PersonalDetailModel()
+        { }
+
+        public PersonalDetailModel(string gender, int age)
+        {
+            this.gender = gender;
+            this.age = age;
+        }
+
         [JsonProperty(PropertyName = "id")]
         public string PersonalDetail_ID { get; set; }
 
@@ -15,7 +24,7 @@ namespace FitnessGoal_v1._0
         public string gender { get; set; }
 
         [JsonProperty(PropertyName = "age")]
-        public string age { get; set; }
+        public int age { get; set; }
 
         [JsonProperty(PropertyName = "Registration_ID")]
         public string RegistrationFK_ID { get; set; }

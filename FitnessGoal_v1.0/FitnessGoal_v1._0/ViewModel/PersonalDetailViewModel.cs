@@ -26,12 +26,12 @@ namespace FitnessGoal_v1._0
         }
 
         //Add PersonalDetail function
-        async public Task<bool> AddPersonalDetail(PersonalDetailModel p, Registration r, BodyCompositionModel bc )
+        async public Task<bool> AddPersonalDetail(PersonalDetailModel p, BodyCompositionModel bc )
         {
             try 
             {
                 await PersonalDetailTable.InsertAsync(p);
-                await RegistrationTable.InsertAsync(r);
+                //await RegistrationTable.InsertAsync(r);
                 await BodyCompositionTable.InsertAsync(bc);
 
                 return true;

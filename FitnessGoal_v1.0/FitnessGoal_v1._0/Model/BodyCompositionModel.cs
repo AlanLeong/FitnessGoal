@@ -8,29 +8,47 @@ namespace FitnessGoal_v1._0.Model
 {
     class BodyCompositionModel
     {
+        public BodyCompositionModel()
+        { }
+
+        public BodyCompositionModel(double hip, double waist, double forearm, double height, double weight)
+        {
+            this.hip = hip;
+            this.waist = waist;
+            this.forearm = forearm;
+            this.height = height;
+            this.weight = weight;
+        }
+
+        public BodyCompositionModel(double bmi, double bfp)
+        {
+            this.bmi = bmi;
+            this.bfp = bfp;
+        }
+
         [JsonProperty(PropertyName = "id")]
-        public string BodyComposition_ID { get; set; }
+        public double BodyComposition_ID { get; set; }
 
         [JsonProperty(PropertyName = "waist")]
-        public string waist { get; set; }
+        public double waist { get; set; }
 
         [JsonProperty(PropertyName = "hip")]
-        public string hip { get; set; }
+        public double hip { get; set; }
 
         [JsonProperty(PropertyName = "forearm")]
-        public string forearm { get; set; }
+        public double forearm { get; set; }
 
         [JsonProperty(PropertyName = "height")]
-        public string height { get; set; }
+        public double height { get; set; }
 
         [JsonProperty(PropertyName = "weight")]
-        public string weight { get; set; }
+        public double weight { get; set; }
 
         [JsonProperty(PropertyName = "bmi")]
-        public string bmi { get; set; }
+        public double bmi { get; set; }
 
         [JsonProperty(PropertyName = "bfp")]
-        public string bfp { get; set; }
+        public double bfp { get; set; }
 
         [JsonProperty(PropertyName = "PersonalDetail_ID")]
         public string PersonalDetailFK_ID { get; set; }
