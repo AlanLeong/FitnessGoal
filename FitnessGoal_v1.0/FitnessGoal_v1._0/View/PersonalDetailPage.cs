@@ -171,7 +171,7 @@ namespace FitnessGoal_v1._0
                 gender = EGender.Text
             };
 
-            pdvm = new BodyCompositionModel 
+            bcm = new BodyCompositionModel 
             {
                 hip = EHip.Text,
                 waist = EWaist.Text,
