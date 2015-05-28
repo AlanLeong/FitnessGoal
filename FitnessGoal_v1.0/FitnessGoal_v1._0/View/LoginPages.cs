@@ -103,12 +103,11 @@ namespace FitnessGoal_v1._0
 
         public async void Loginbtn_Clicked(object sender, EventArgs args)
         {
-            login = new Registration 
+            login = new Registration
             {
                 username = Eusername.Text,
                 password = Epassword.Text
             };
-
 
             try
             {

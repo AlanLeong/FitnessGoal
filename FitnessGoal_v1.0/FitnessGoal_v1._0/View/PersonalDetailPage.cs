@@ -1,21 +1,84 @@
-﻿using System;
+﻿using FitnessGoal_v1._0.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace FitnessGoal_v1._0
 {
     public class PersonalDetailPage : ContentPage
     {
+        public static Registration register;
+        public static PersonalDetailModel pdm;
+        public static BodyCompositionModel bcm;
+        PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+
+        Entry Eage = new Entry()
+        {
+            Placeholder = "Age",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry EWaist = new Entry()
+        {
+            Placeholder = "Waist Measurement",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry EHip = new Entry()
+        {
+            Placeholder = "Hip Measurement",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry Eforearm = new Entry()
+        {
+            Placeholder = "Forearm Measurement",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry Eheight = new Entry()
+        {
+            Placeholder = "Height Measurement",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry Eweight = new Entry()
+        {
+            Placeholder = "Weight Measurement",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry EGender = new Entry()
+        {
+            Placeholder = "Gender",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        };
+
+        Entry EEmail = new Entry()
+        {
+            Placeholder = "Email",
+            TextColor = Color.Black,
+            BackgroundColor = Color.White
+        }; 
+
         public PersonalDetailPage()
         {
 
             Title = "Personal Detail";
 
-            StackLayout layout1 = new StackLayout() 
+            var scroll = new ScrollView();
+
+            StackLayout layout1 = new StackLayout()
             {
                 Padding = new Thickness(40, 0, 40, 0),
                 Orientation = StackOrientation.Horizontal,
@@ -39,38 +102,14 @@ namespace FitnessGoal_v1._0
                 }
             };
 
-            StackLayout layout2 = new StackLayout() 
+            StackLayout layout2 = new StackLayout()
             {
                 VerticalOptions = LayoutOptions.Center,
                 Padding = new Thickness(40, 0, 40, 0)
             };
-            StackLayout test = new StackLayout() 
-            {
-                VerticalOptions = LayoutOptions.Center,
-                Orientation = StackOrientation.Horizontal,
-                BackgroundColor = StaticAppStyle.MenuColour,
-                Children =
-                {
-                    new Label
-                    {
-                        Text = "Gender:",
-                        FontSize = 16,
-                        TextColor = Color.White
-                    },
-
-                    new Switch 
-                    {
-                        HorizontalOptions = LayoutOptions.EndAndExpand,
-                        VerticalOptions = LayoutOptions.EndAndExpand,
-                    }
-                }
-                 
-            };
 
             StackLayout layout3 = new StackLayout()
             {
-                //Padding = new Thickness(60, 60, 60, 60),
-                
                 Orientation = StackOrientation.Horizontal,
                 HeightRequest = 150,
                 WidthRequest = 150,
@@ -92,94 +131,54 @@ namespace FitnessGoal_v1._0
             StackLayout layoutALL = new StackLayout()
             {
                 VerticalOptions = LayoutOptions.Start
-                
+
             };
 
-            Entry dob = new Entry()
-            {
-                Placeholder = "D.O.B",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            Entry Waist = new Entry()
-            {
-                Placeholder = "Waist Measurement",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            Entry Hip = new Entry()
-            {
-                Placeholder = "Hip Measurement",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            Entry forearm = new Entry()
-            {
-                Placeholder = "Forearm Measurement",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            Entry height = new Entry()
-            {
-                Placeholder = "Height Measurement",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            Entry weight = new Entry()
-            {
-                Placeholder = "Weight Measurement",
-                TextColor = Color.Black,
-                BackgroundColor = Color.White
-            };
-
-            //SwitchCell Gender = new SwitchCell() 
-            //{
-            //    Text = "Gender",
-                
-            //};
-
-            Button savebtn = new Button() 
+            Button savebtn = new Button()
             {
                 Text = "Save",
                 Style = StaticAppStyle.Button01,
             };
 
-            savebtn.Clicked += async (sender, e) => 
-            {
-                var answer = await DisplayAlert("Personal Detail", "Confirm?", "Not Fuck given", "Yes");
-                //Debug.WriteLine("Personal Detail saved"); // writes true or false to the console
-            };
-
-            //Entry Gender = new Entry()
-            //{
-            //    Placeholder = "Gender",
-            //    TextColor = Color.Black,
-            //    BackgroundColor = Color.White
-            //};  
-
-            //layout2.Children.Add(layout3);
             layout2.Children.Add(layout1);
-            //test.Children.Add(lblgender);
-            //test.Children.Add(Gender);
-            layout2.Children.Add(test);
-            layout2.Children.Add(dob);
-            layout2.Children.Add(Hip);
-            layout2.Children.Add(Waist);
-            layout2.Children.Add(forearm);
-            layout2.Children.Add(height);
-            layout2.Children.Add(weight);
+            layout2.Children.Add(EGender);
+            layout2.Children.Add(EEmail);
+            layout2.Children.Add(Eage);
+            layout2.Children.Add(EHip);
+            layout2.Children.Add(EWaist);
+            layout2.Children.Add(Eforearm);
+            layout2.Children.Add(Eheight);
+            layout2.Children.Add(Eweight);
             layout2.Children.Add(savebtn);
-           // layoutALL.Children.Add(layout1);
             layoutALL.Children.Add(layout3);
             layoutALL.Children.Add(layout2);
 
-            Content = layoutALL;
-            
+            scroll.Content = layoutALL;
+            Content = scroll;
+
+        }
+
+        public async void savebtn_Clicked(object sender, EventArgs args)
+        {
+            register = new Registration
+            {
+               email = EEmail.Text
+            };
+
+            pdm = new PersonalDetailModel 
+            {
+                age = Eage.Text,
+                gender = EGender.Text
+            };
+
+            pdvm = new BodyCompositionModel 
+            {
+                hip = EHip.Text,
+                waist = EWaist.Text,
+                forearm = Eforearm.Text,
+                weight = Eweight.Text,
+                height = Eheight.Text
+            };
         }
     }
 }

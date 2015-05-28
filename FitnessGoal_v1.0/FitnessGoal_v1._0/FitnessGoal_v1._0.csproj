@@ -47,10 +47,7 @@
     <Compile Include="View\Map.cs" />
     <Compile Include="View\MyProfilePage.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="View\BicepExercisePage.cs" />
     <Compile Include="View\BodyCompositionPage.cs" />
-    <Compile Include="View\CardioExercisePage.cs" />
-    <Compile Include="View\ChestExercisePage.cs" />
     <Compile Include="View\ExerciseProgramPage.cs" />
     <Compile Include="View\ForgotPasswordPage.cs" />
     <Compile Include="View\HomePage.cs" />
@@ -64,7 +61,6 @@
     <Compile Include="ViewModel\PersonalDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\RegistrationPage.cs" />
-    <Compile Include="View\ShoulderExercisePage.cs" />
     <Compile Include="Model\Registration.cs" />
     <Compile Include="StaticAppStyle.cs" />
     <Compile Include="View\VideoPage.cs" />

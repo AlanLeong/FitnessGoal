@@ -5,6 +5,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
+using FitnessGoal_v1._0.Model;
 
 namespace FitnessGoal_v1._0
 {
@@ -12,17 +13,34 @@ namespace FitnessGoal_v1._0
     {
         private MobileServiceClient client;
         private IMobileServiceTable<PersonalDetailModel> PersonalDetailTable;
-
-        public List<PersonalDetailModel> PersonalDetailList { get; private set; }
+        private IMobileServiceTable<Registration> RegistrationTable;
+        private IMobileServiceTable<BodyCompositionModel> BodyCompositionTable;
 
         public PersonalDetailViewModel() 
         {
-            PersonalDetailList = new List<PersonalDetailModel>();
 
             client = new MobileServiceClient("https://fitnessgoal.azure-mobile.net/", "rymfMTjetjFCIgfWZDoOeDDysCxhKc10");
             PersonalDetailTable = client.GetTable<PersonalDetailModel>();
+            RegistrationTable = client.GetTable<Registration>();
+            BodyCompositionTable = client.GetTable<BodyCompositionModel>();
         }
 
-        //Add Detail function
+        //Add PersonalDetail function
+        async public Task<bool> AddPersonalDetail(PersonalDetailModel p, Registration r, BodyCompositionModel bc )
+        {
+            try 
+            {
+                await PersonalDetailTable.InsertAsync(p);
+                await RegistrationTable.InsertAsync(r);
+                await BodyCompositionTable.InsertAsync(bc);
+
+                return true;
+       
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
