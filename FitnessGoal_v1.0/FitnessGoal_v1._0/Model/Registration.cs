@@ -21,6 +21,11 @@ namespace FitnessGoal_v1._0
             this.password = password;
         }
 
+        public Registration(string ExerciseProgramID)
+        {
+            this.ExerciseProgram_ID = ExerciseProgramID;
+        }
+
         public Registration()
         {
             // TODO: Complete member initialization
@@ -30,7 +35,7 @@ namespace FitnessGoal_v1._0
 
         public static bool IsUser { get; set; }
 
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "ID")]
         public string Registration_ID { get; set; }
 
         [JsonProperty(PropertyName = "username")]

@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0.Model
 {
-    class ProgressReportModel
+    public class ProgressReportModel
     {
-        [JsonProperty(PropertyName = "id")]
+        public ProgressReportModel() { }
+
+        [JsonProperty(PropertyName = "ID")]
         public string ProgressReport_ID { get; set; }
 
         [JsonProperty(PropertyName = "currentBMI")]
-        public string currentBMI { get; set; }
+        public float currentBMI { get; set; }
 
         [JsonProperty(PropertyName = "currentBFP")]
-        public string currentBFP { get; set; }
+        public float currentBFP { get; set; }
 
         [JsonProperty(PropertyName = "status")]
         public string status { get; set; }

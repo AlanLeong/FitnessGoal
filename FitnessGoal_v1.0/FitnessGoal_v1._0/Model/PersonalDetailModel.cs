@@ -11,10 +11,11 @@ namespace FitnessGoal_v1._0
         public PersonalDetailModel()
         { }
 
-        public PersonalDetailModel(string gender, int age)
+        public PersonalDetailModel(string gender, int age, string RegistrationID)
         {
             this.gender = gender;
             this.age = age;
+            this.RegistrationFK_ID = RegistrationID;
         }
 
         [JsonProperty(PropertyName = "id")]

@@ -14,6 +14,7 @@ namespace FitnessGoal_v1._0
         public static PersonalDetailModel pdm;
         public static BodyCompositionModel bcm;
         PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+        LoginViewModel lvm = new LoginViewModel();
 
         Entry Eage = new Entry()
         {
@@ -137,7 +138,14 @@ namespace FitnessGoal_v1._0
             Button savebtn = new Button()
             {
                 Text = "Save",
-                Style = StaticAppStyle.Button01,
+                Style = StaticAppStyle.Button01
+            };
+
+            //for testing
+            Button testbtn = new Button()
+            {
+                Text = "Test",
+                Style = StaticAppStyle.Button01
             };
 
             layout2.Children.Add(layout1);
@@ -150,6 +158,7 @@ namespace FitnessGoal_v1._0
             layout2.Children.Add(Eheight);
             layout2.Children.Add(Eweight);
             layout2.Children.Add(savebtn);
+            layout2.Children.Add(testbtn);
             layoutALL.Children.Add(layout3);
             layoutALL.Children.Add(layout2);
 
@@ -157,29 +166,47 @@ namespace FitnessGoal_v1._0
             Content = scroll;
 
             savebtn.Clicked += savebtn_Clicked;
+            testbtn.Clicked += textbtn_Clicked;
+        }
+
+        //testing
+        public async void textbtn_Clicked(object sender, EventArgs args)
+        {
+            StaticClass.RegistrationID = await lvm.GetuserID(Registration.Current);
+            StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
+            await DisplayAlert("Testing", StaticClass.RegistrationID , "Close");
+        
         }
 
         public async void savebtn_Clicked(object sender, EventArgs args)
         {
-            //register = new Registration
-            //{
-            //   email = EEmail.Text
-            //};
+            float bmi, bfp;
+
+            bmi = Convert.ToSingle(Eweight.Text) / Convert.ToSingle(Eheight.Text) * Convert.ToSingle(Eweight.Text);
+                
+                
+
 
             pdm = new PersonalDetailModel 
             {
                 age = Convert.ToInt32(Eage.Text),
-                gender = EGender.Text
+                gender = EGender.Text,
+                RegistrationFK_ID = StaticClass.RegistrationID
             };
 
             bcm = new BodyCompositionModel 
             {
-                hip = Convert.ToDouble(EHip.Text),
-                waist = Convert.ToDouble(EWaist.Text),
-                forearm = Convert.ToDouble(Eforearm.Text),
-                weight = Convert.ToDouble(Eweight.Text),
-                height = Convert.ToDouble(Eheight.Text)
+                hip = Convert.ToSingle(EHip.Text),
+                waist = Convert.ToSingle(EWaist.Text),
+                forearm = Convert.ToSingle(Eforearm.Text),
+                weight = Convert.ToSingle(Eweight.Text),
+                height = Convert.ToSingle(Eheight.Text),
+                PersonalDetailFK_ID = StaticClass.PersonalDetailID
             };
+
+            //StaticClass.RegistrationID = await lvm.GetuserID(register);
+            StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
+            await DisplayAlert("Testing", StaticClass.RegistrationID +"\n"+ StaticClass.PersonalDetailID, "Close");
 
             //not yet add EEmail.Text
             if(EHip.Text.Equals("") || EWaist.Text.Equals("") || Eforearm.Text.Equals("")

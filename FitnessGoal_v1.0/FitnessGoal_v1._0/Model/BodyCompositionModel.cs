@@ -6,49 +6,52 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0.Model
 {
-    class BodyCompositionModel
+    public class BodyCompositionModel
     {
         public BodyCompositionModel()
         { }
 
-        public BodyCompositionModel(double hip, double waist, double forearm, double height, double weight)
+        public BodyCompositionModel(float hip, float waist, float forearm, float height, float weight, float bmi, float bfp, string personaldetailFK)
         {
             this.hip = hip;
             this.waist = waist;
             this.forearm = forearm;
             this.height = height;
             this.weight = weight;
-        }
-
-        public BodyCompositionModel(double bmi, double bfp)
-        {
             this.bmi = bmi;
             this.bfp = bfp;
+            this.PersonalDetailFK_ID = personaldetailFK;
         }
 
+        //public BodyCompositionModel(float bmi, float bfp)
+        //{
+        //    this.bmi = bmi;
+        //    this.bfp = bfp;
+        //}
+
         [JsonProperty(PropertyName = "id")]
-        public double BodyComposition_ID { get; set; }
+        public String BodyComposition_ID { get; set; }
 
         [JsonProperty(PropertyName = "waist")]
-        public double waist { get; set; }
+        public float waist { get; set; }
 
         [JsonProperty(PropertyName = "hip")]
-        public double hip { get; set; }
+        public float hip { get; set; }
 
         [JsonProperty(PropertyName = "forearm")]
-        public double forearm { get; set; }
+        public float forearm { get; set; }
 
         [JsonProperty(PropertyName = "height")]
-        public double height { get; set; }
+        public float height { get; set; }
 
         [JsonProperty(PropertyName = "weight")]
-        public double weight { get; set; }
+        public float weight { get; set; }
 
         [JsonProperty(PropertyName = "bmi")]
-        public double bmi { get; set; }
+        public float bmi { get; set; }
 
         [JsonProperty(PropertyName = "bfp")]
-        public double bfp { get; set; }
+        public float bfp { get; set; }
 
         [JsonProperty(PropertyName = "PersonalDetail_ID")]
         public string PersonalDetailFK_ID { get; set; }

@@ -114,10 +114,17 @@ namespace FitnessGoal_v1._0
                 int x;
                 x = await LVM.ValidateLogin(login);
                 if (x > 0)
+                {
+                    
                     await Navigation.PushModalAsync(new MasterDetailHome());
-                else
-                    await DisplayAlert("Alert", "Invalid username or password", "Close");
+                }
 
+                else 
+                {
+                    await DisplayAlert("Alert", "Invalid username or password", "Close");
+                }
+                    
+                StaticClass.RegistrationID = await LVM.GetuserID(Registration.Current);
             }
             catch (Exception e) 
             {

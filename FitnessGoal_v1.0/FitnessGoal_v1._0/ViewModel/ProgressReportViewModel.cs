@@ -9,7 +9,7 @@ using FitnessGoal_v1._0.Model;
 
 namespace FitnessGoal_v1._0.ViewModel
 {
-    class BodyCompositionViewModel
+    class ProgressReportViewModel
     {
     }
 }

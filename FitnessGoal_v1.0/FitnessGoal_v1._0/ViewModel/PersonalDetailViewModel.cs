@@ -16,6 +16,8 @@ namespace FitnessGoal_v1._0
         private IMobileServiceTable<Registration> RegistrationTable;
         private IMobileServiceTable<BodyCompositionModel> BodyCompositionTable;
 
+        public List<PersonalDetailModel> personaldetailList { get; private set; }
+
         public PersonalDetailViewModel() 
         {
 
@@ -40,6 +42,21 @@ namespace FitnessGoal_v1._0
             catch (Exception e)
             {
                 return false;
+            }
+        }
+
+        async public Task<string> GetPersonalDetailID(PersonalDetailModel pdm)
+        {
+            try
+            {
+
+                personaldetailList = await PersonalDetailTable.ToListAsync();
+
+                return personaldetailList.Find(a => a.RegistrationFK_ID == pdm.RegistrationFK_ID).PersonalDetail_ID;
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
     }
