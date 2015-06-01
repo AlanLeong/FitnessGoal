@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0.Model
 {
-    public class BodyCompositionModel
+    public class BodyComposition
     {
-        public BodyCompositionModel()
+        public BodyComposition()
         { }
 
-        public BodyCompositionModel(string Registration_ID,float hip, float waist, float forearm, float height, float weight, float bmi, float bfp)
+        public BodyComposition(string Registration_ID,float hip, float waist, float forearm, float height, float weight, float bmi, float bfp)
         {
             this.hip = hip;
             this.waist = waist;

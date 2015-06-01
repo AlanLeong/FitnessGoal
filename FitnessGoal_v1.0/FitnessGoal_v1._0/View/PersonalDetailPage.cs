@@ -11,8 +11,8 @@ namespace FitnessGoal_v1._0
     public class PersonalDetailPage : ContentPage
     {
         public static Registration register;
-        public static PersonalDetailModel pdm;
-        public static BodyCompositionModel bcm;
+        public static PersonalDetail pdm;
+        public static BodyComposition bcm;
         PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
         LoginViewModel lvm = new LoginViewModel();
         float bmi, bfp, f1, f2, f3, f4, f5, leanbodymass, bodyfatweight;
@@ -204,19 +204,22 @@ namespace FitnessGoal_v1._0
 
             //Validation 
             if(EHip.Text.Equals("") || EWaist.Text.Equals("") || Eforearm.Text.Equals("")
-                || Eweight.Text.Equals("") || Eheight.Text.Equals("") || Eage.Text.Equals(""))
+                || Eweight.Text.Equals("") || Eheight.Text.Equals("") || Eage.Text.Equals("") || EGender.Text.Equals(""))
             {
                 await DisplayAlert("Alert","Entry is not completed","Close");
             }
-            //else if (!EGender.Text.Equals("M") || !EGender.Text.Equals("F") || EGender.Text.Equals(""))
+            else if (!EGender.Text.Equals("M") && !EGender.Text.Equals("F"))
+            {
+                await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
+            }
+            //else if (!EGender.Text.Equals("F"))
             //{
             //    await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
             //}
-            
             else
             {
                 //start putting data into list after validation
-                pdm = new PersonalDetailModel
+                pdm = new PersonalDetail
                 {
                     age = Convert.ToInt32(Eage.Text),
                     gender = EGender.Text,
@@ -226,7 +229,7 @@ namespace FitnessGoal_v1._0
                 //calculate bmi
                 bmi = Convert.ToSingle(Eweight.Text) / Convert.ToSingle(Eheight.Text) * Convert.ToSingle(Eweight.Text);
 
-                bcm = new BodyCompositionModel
+                bcm = new BodyComposition
                 {
                     hip = Convert.ToSingle(EHip.Text),
                     waist = Convert.ToSingle(EWaist.Text),

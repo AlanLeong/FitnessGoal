@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0.Model
 {
-    public class ProgressReportModel
+    public class ProgressReport
     {
-        public ProgressReportModel() { }
+        public ProgressReport() { }
 
         [JsonProperty(PropertyName = "ID")]
         public string ProgressReport_ID { get; set; }

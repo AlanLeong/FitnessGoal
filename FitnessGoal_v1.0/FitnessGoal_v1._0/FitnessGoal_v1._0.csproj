@@ -34,13 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Model\ExerciseProgramModel.cs" />
+    <Compile Include="Model\ExerciseProgram.cs" />
     <Compile Include="StaticClass.cs" />
     <Compile Include="ViewModel\BodyCompositionViewModel.cs" />
     <Compile Include="ViewModel\ExerciseProgramViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="Model\BodyCompositionModel.cs" />
-    <Compile Include="Model\ProgressReportModel.cs" />
+    <Compile Include="Model\BodyComposition.cs" />
+    <Compile Include="Model\ProgressReport.cs" />
     <Compile Include="SetRepWeight.cs" />
     <Compile Include="ViewModel\ProgressReportViewModel.cs" />
     <Compile Include="View\Map.cs" />
@@ -56,7 +56,7 @@
     <Compile Include="View\NavigationMenu.cs" />
     <Compile Include="View\PersonalDetailPage.cs" />
     <Compile Include="View\ProgressReportPage.cs" />
-    <Compile Include="Model\PersonalDetailModel.cs" />
+    <Compile Include="Model\PersonalDetail.cs" />
     <Compile Include="ViewModel\PersonalDetailViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\RegistrationPage.cs" />

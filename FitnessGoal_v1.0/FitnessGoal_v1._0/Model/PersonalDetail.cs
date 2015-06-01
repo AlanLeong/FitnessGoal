@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    public class PersonalDetailModel
+    public class PersonalDetail
     {
-        public PersonalDetailModel()
+        public PersonalDetail()
         { }
 
         //public PersonalDetailModel(string gender, int age, string RegistrationID)
