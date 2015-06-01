@@ -15,6 +15,7 @@ namespace FitnessGoal_v1._0
         public static BodyCompositionModel bcm;
         PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
         LoginViewModel lvm = new LoginViewModel();
+        float bmi, bfp, f1, f2, f3, f4, f5, leanbodymass, bodyfatweight;
 
         Entry Eage = new Entry()
         {
@@ -173,70 +174,88 @@ namespace FitnessGoal_v1._0
         public async void textbtn_Clicked(object sender, EventArgs args)
         {
             StaticClass.RegistrationID = await lvm.GetuserID(Registration.Current);
-            StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
+            //StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
             await DisplayAlert("Testing", StaticClass.RegistrationID , "Close");
         
         }
 
         public async void savebtn_Clicked(object sender, EventArgs args)
         {
-            float bmi, bfp;
-
-            bmi = Convert.ToSingle(Eweight.Text) / Convert.ToSingle(Eheight.Text) * Convert.ToSingle(Eweight.Text);
-                
-                
-
-
-            pdm = new PersonalDetailModel 
+            //to calculate bfp
+            if (EGender.Text.Equals("M"))
             {
-                age = Convert.ToInt32(Eage.Text),
-                gender = EGender.Text,
-                RegistrationFK_ID = StaticClass.RegistrationID
-            };
-
-            bcm = new BodyCompositionModel 
+                //calculate bfp male
+                f1 = (Convert.ToSingle(Eweight.Text) * 1.082f) + 94.42f;
+                f2 = Convert.ToSingle(EWaist.Text) * 4.15f;
+                leanbodymass = f1 - f2;
+                bodyfatweight = Convert.ToSingle(Eweight.Text) - leanbodymass;
+                bfp = (bodyfatweight * 100) / Convert.ToSingle(Eweight.Text);
+            }
+            else if (EGender.Text.Equals("F"))
             {
-                hip = Convert.ToSingle(EHip.Text),
-                waist = Convert.ToSingle(EWaist.Text),
-                forearm = Convert.ToSingle(Eforearm.Text),
-                weight = Convert.ToSingle(Eweight.Text),
-                height = Convert.ToSingle(Eheight.Text),
-                PersonalDetailFK_ID = StaticClass.PersonalDetailID
-            };
+                //calculate bfp female
+                f1 = (Convert.ToSingle(Eweight.Text) * 0.732f) + 8.987f;
+                f2 = Convert.ToSingle(EWaist.Text) / 3.140f;
+                f3 = Convert.ToSingle(EHip.Text) * 0.434f;
+                f4 = Convert.ToSingle(Eforearm.Text) * 0.434f;
+                leanbodymass = f1 + f2 - f3 + f5;
+                bfp = (bodyfatweight * 100) / Convert.ToSingle(Eweight.Text);
+            }
 
-            //StaticClass.RegistrationID = await lvm.GetuserID(register);
-            StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
-            await DisplayAlert("Testing", StaticClass.RegistrationID +"\n"+ StaticClass.PersonalDetailID, "Close");
-
-            //not yet add EEmail.Text
+            //Validation 
             if(EHip.Text.Equals("") || EWaist.Text.Equals("") || Eforearm.Text.Equals("")
                 || Eweight.Text.Equals("") || Eheight.Text.Equals("") || Eage.Text.Equals(""))
             {
                 await DisplayAlert("Alert","Entry is not completed","Close");
             }
-            else if (EGender.Text != "M" || EGender.Text != "F" || EGender.Text.Equals(""))
+            //else if (!EGender.Text.Equals("M") || !EGender.Text.Equals("F") || EGender.Text.Equals(""))
+            //{
+            //    await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
+            //}
+            
+            else
             {
-                await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
-            }
-            else 
-            {
-                try 
+                //start putting data into list after validation
+                pdm = new PersonalDetailModel
+                {
+                    age = Convert.ToInt32(Eage.Text),
+                    gender = EGender.Text,
+                    RegistrationFK_ID = StaticClass.RegistrationID
+                };
+
+                //calculate bmi
+                bmi = Convert.ToSingle(Eweight.Text) / Convert.ToSingle(Eheight.Text) * Convert.ToSingle(Eweight.Text);
+
+                bcm = new BodyCompositionModel
+                {
+                    hip = Convert.ToSingle(EHip.Text),
+                    waist = Convert.ToSingle(EWaist.Text),
+                    forearm = Convert.ToSingle(Eforearm.Text),
+                    weight = Convert.ToSingle(Eweight.Text),
+                    height = Convert.ToSingle(Eheight.Text),
+                    bmi = bmi,
+                    bfp = bfp,
+                    RegistrationFK_ID = StaticClass.RegistrationID
+                };
+
+                try
                 {
                     bool x;
                     x = await pdvm.AddPersonalDetail(pdm, bcm);
                     if (x == true)
                     {
                         await DisplayAlert("Personal Detail", "Detail Saved", "Close");
- 
-                    }else
-                        await DisplayAlert ("Alert","Failed to save","Close");
-                    
+
+                    }
+                    else
+                        await DisplayAlert("Alert", "Failed to save", "Close");
+
                 }
                 catch (Exception e)
                 {
                     throw;
                 }
-            }
+            }      
         }
     }
 }

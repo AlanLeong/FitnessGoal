@@ -11,7 +11,7 @@ namespace FitnessGoal_v1._0.Model
         public BodyCompositionModel()
         { }
 
-        public BodyCompositionModel(float hip, float waist, float forearm, float height, float weight, float bmi, float bfp, string personaldetailFK)
+        public BodyCompositionModel(string Registration_ID,float hip, float waist, float forearm, float height, float weight, float bmi, float bfp)
         {
             this.hip = hip;
             this.waist = waist;
@@ -20,7 +20,7 @@ namespace FitnessGoal_v1._0.Model
             this.weight = weight;
             this.bmi = bmi;
             this.bfp = bfp;
-            this.PersonalDetailFK_ID = personaldetailFK;
+            this.RegistrationFK_ID = Registration_ID;
         }
 
         //public BodyCompositionModel(float bmi, float bfp)
@@ -29,7 +29,7 @@ namespace FitnessGoal_v1._0.Model
         //    this.bfp = bfp;
         //}
 
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "ID")]
         public String BodyComposition_ID { get; set; }
 
         [JsonProperty(PropertyName = "waist")]
@@ -53,7 +53,7 @@ namespace FitnessGoal_v1._0.Model
         [JsonProperty(PropertyName = "bfp")]
         public float bfp { get; set; }
 
-        [JsonProperty(PropertyName = "PersonalDetail_ID")]
-        public string PersonalDetailFK_ID { get; set; }
+        [JsonProperty(PropertyName = "Registration_ID")]
+        public string RegistrationFK_ID { get; set; }
     }
 }
