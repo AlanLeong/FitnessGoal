@@ -91,7 +91,8 @@ namespace FitnessGoal_v1._0
                         new Setter {Property = Label.HeightRequestProperty, Value = 50},
                         new Setter {Property = Label.TextProperty, Value = 18},
                         new Setter {Property = Label.XAlignProperty, Value = TextAlignment.Center},
-                        new Setter {Property = Label.YAlignProperty, Value = TextAlignment.Center}
+                        new Setter {Property = Label.YAlignProperty, Value = TextAlignment.Center},
+                        new Setter {Property = Label.WidthRequestProperty, Value = 30}
                     }
                 };
             }

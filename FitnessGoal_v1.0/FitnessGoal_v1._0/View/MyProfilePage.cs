@@ -10,9 +10,107 @@ namespace FitnessGoal_v1._0
 {
     public class MyProfilePage : ContentPage
     {
+        PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+        BodyCompositionViewModel bcvm = new BodyCompositionViewModel();
+
+        PersonalDetail pd = new PersonalDetail();
+        BodyComposition bc = new BodyComposition();
+
+        Label lblBMI = new Label()
+        {
+            Text = "User BMI",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lblBFP = new Label()
+        {
+            Text = "User BFP",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lbltargetBMI = new Label()
+        {
+            Text = "BMI GOAL",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lbltargetBFP = new Label()
+        {
+            Text = "BFP GOAL",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lblGender = new Label()
+        {
+            Text = "Gender",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lblage = new Label()
+        {
+            Text = "Age",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20,
+            BackgroundColor = StaticAppStyle.ThemeColor
+        };
+
+        Label lblgetage = new Label()
+        {
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+        Label lblgetgender = new Label()
+        {
+            //Text = "Get Gender",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+        Label lblgetbmi = new Label()
+        {
+            //Text = "Get BMI",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+        Label lblgetbfp = new Label()
+        {
+            //Text = "Get BFP",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+        Label lblGetBMIGoal = new Label()
+        {
+            Text = "18.6-24.9 (Kg/m2)",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+        Label lblGetBFPGoal = new Label()
+        {
+            Text = "8-19 %",
+            Style = StaticAppStyle.LabelStyle2,
+            FontSize = 20
+        };
+
+
         //public static Registration login;
         public MyProfilePage()
         {
+            getprofile();
+
             Title = "My Profile";
 
             StackLayout imagelayout = new StackLayout()
@@ -86,96 +184,6 @@ namespace FitnessGoal_v1._0
                 TextColor = Color.White
             };
 
-            Label lblBMI = new Label()
-            {
-                Text = "User BMI",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lblBFP = new Label()
-            {
-                Text = "User BFP",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lbltargetBMI = new Label()
-            {
-                Text = "BMI GOAL",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lbltargetBFP = new Label()
-            {
-                Text = "BFP GOAL",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lblGender = new Label()
-            {
-                Text = "Gender",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20 ,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lblage = new Label()
-            {
-                Text = "Age",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20,
-                BackgroundColor = StaticAppStyle.ThemeColor
-            };
-
-            Label lblgetage = new Label()
-            {
-                Text = "Get Age",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
-            Label lblgetgender = new Label()
-            {
-                Text = "Get Gender",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
-            Label lblgetbmi = new Label()
-            {
-                Text = "Get BMI",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
-            Label lblgetbfp = new Label()
-            {
-                Text = "Get BFP",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
-            Label lblGetBMIGoal = new Label()
-            {
-                Text = "18.6-24.9 (Kg/m2)",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
-            Label lblGetBFPGoal = new Label()
-            {
-                Text = "8-19 %",
-                Style = StaticAppStyle.LabelStyle2,
-                FontSize = 20
-            };
-
             vertical1.Children.Add(lblage);
             vertical1.Children.Add(lblgetage);
             vertical2.Children.Add(lblGender);
@@ -203,15 +211,30 @@ namespace FitnessGoal_v1._0
             Content = scroll;
         }
 
-        public async void btnBMI_Clicked(object sender, EventArgs args)
+        //public async void btnBMI_Clicked(object sender, EventArgs args)
+        //{
+        //    await DisplayAlert("Body Mass Index", 
+        //      "Category                   BMI Range\n"
+        //    + "Underweight             Below 18.5\n"
+        //    + "Healthy                     18.6 - 24.9\n"
+        //    + "Overweight               25.0 - 29.9\n"
+        //    + "Obese                       30.0 - 39.9\n"
+        //    + "High Risk Obesity    Above 40\n", "Close");
+
+        //}
+
+        public async void getprofile()
         {
-            await DisplayAlert("Body Mass Index", 
-              "Category                   BMI Range\n"
-            + "Underweight             Below 18.5\n"
-            + "Healthy                     18.6 - 24.9\n"
-            + "Overweight               25.0 - 29.9\n"
-            + "Obese                       30.0 - 39.9\n"
-            + "High Risk Obesity    Above 40\n", "Close");
+           pd = await pdvm.GetMyProfileList(StaticClass.RegistrationID);
+           bc = await bcvm.GetMyCompositionList(StaticClass.RegistrationID);
+           lblgetage.BindingContext = pd;
+           lblgetage.SetBinding(Label.TextProperty, "age");
+           lblgetgender.BindingContext = pd;
+           lblgetgender.SetBinding(Label.TextProperty, "gender");
+           lblgetbmi.BindingContext = bc;
+           lblgetbmi.SetBinding(Label.TextProperty, "bmi");
+           lblgetbfp.BindingContext = bc;
+           lblgetbfp.SetBinding(Label.TextProperty, "bfp");
 
         }
 

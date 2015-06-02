@@ -56,12 +56,30 @@ namespace FitnessGoal_v1._0
                 FontSize = 20
             };
 
+            TimePicker time = new TimePicker { };
+
+            Label settime = new Label 
+            {
+                Text = "Set Alarm:",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 16
+            };
+
+            StackLayout layout2 = new StackLayout 
+            {
+                Orientation = StackOrientation.Horizontal,
+                VerticalOptions = LayoutOptions.Fill,
+                HorizontalOptions = LayoutOptions.Fill
+            };
+
             layout1.Children.Add(ExerciseProgramTitle);
             layout1.Children.Add(cardio);
             layout1.Children.Add(bicep);
             layout1.Children.Add(chest);
             layout1.Children.Add(shoulder);
-
+            layout2.Children.Add(settime);
+            layout2.Children.Add(time);
+            layout1.Children.Add(layout2);
             Content = layout1;
         }
     }

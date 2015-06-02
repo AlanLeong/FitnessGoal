@@ -17,12 +17,12 @@ namespace FitnessGoal_v1._0
         public string ShoulderFK_ID { get; set; }
 
         [JsonProperty(PropertyName = "Set")]
-        public string Set { get; set; }
+        public int Set { get; set; }
 
         [JsonProperty(PropertyName = "Rep")]
-        public string Rep { get; set; }
+        public int Rep { get; set; }
 
         [JsonProperty(PropertyName = "Weight")]
-        public string Weight { get; set; }
+        public float Weight { get; set; }
     }
 }

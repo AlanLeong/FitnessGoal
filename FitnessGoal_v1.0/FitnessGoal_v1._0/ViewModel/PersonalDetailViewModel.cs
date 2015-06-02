@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
 using FitnessGoal_v1._0.Model;
+using System.Linq;
 
 namespace FitnessGoal_v1._0
 {
@@ -17,6 +18,7 @@ namespace FitnessGoal_v1._0
         private IMobileServiceTable<BodyComposition> BodyCompositionTable;
 
         public List<PersonalDetail> personaldetailList { get; private set; }
+        
 
         public PersonalDetailViewModel() 
         {
@@ -44,6 +46,8 @@ namespace FitnessGoal_v1._0
             }
         }
 
+
+
         async public Task<string> GetPersonalDetailID(PersonalDetail pdm)
         {
             try
@@ -52,6 +56,23 @@ namespace FitnessGoal_v1._0
                 personaldetailList = await PersonalDetailTable.ToListAsync();
 
                 return personaldetailList.Find(a => a.RegistrationFK_ID == pdm.RegistrationFK_ID).PersonalDetail_ID;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        async public Task<PersonalDetail> GetMyProfileList(string ID) 
+        {
+            try 
+            {         
+                personaldetailList = await PersonalDetailTable
+                    .Where(a => a.RegistrationFK_ID == ID)
+                    .ToListAsync();
+
+                //.first = to get first row data from db
+                return personaldetailList.First();
             }
             catch (Exception e)
             {

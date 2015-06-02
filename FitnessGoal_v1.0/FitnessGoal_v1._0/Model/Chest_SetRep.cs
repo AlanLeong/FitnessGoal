@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    class Bicep_SetRep
+    class Chest_SetRep
     {
-        public Bicep_SetRep() { }
+        public Chest_SetRep() { }
 
         [JsonProperty(PropertyName = "ID")]
-        public string BicepSetRep_ID { get; set; }
+        public string ChestSetRep_ID { get; set; }
 
-        [JsonProperty(PropertyName = "Bicep_ID")]
-        public string BicepFK_ID { get; set; }
+        [JsonProperty(PropertyName = "Chest_ID")]
+        public string ChestFK_ID { get; set; }
 
         [JsonProperty(PropertyName = "Set")]
         public int Set { get; set; }
@@ -24,6 +24,5 @@ namespace FitnessGoal_v1._0
 
         [JsonProperty(PropertyName = "Weight")]
         public float Weight { get; set; }
-
     }
 }
