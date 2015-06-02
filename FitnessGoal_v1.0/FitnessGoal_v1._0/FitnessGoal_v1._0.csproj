@@ -34,7 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Model\BicepExe_BicepSetRep.cs" />
+    <Compile Include="Model\Bicep_Exe.cs" />
+    <Compile Include="Model\Bicep_SetRep.cs" />
+    <Compile Include="Model\ChestExe_ChestSetRep.cs" />
+    <Compile Include="Model\Chest_Exe.cs" />
+    <Compile Include="Model\Chest_SetRep.cs" />
     <Compile Include="Model\ExerciseProgram.cs" />
+    <Compile Include="Model\ShoulderExe_ShoulderSetRep.cs" />
+    <Compile Include="Model\Shoulder_Exe.cs" />
+    <Compile Include="Model\Shoulder_SetRep.cs" />
     <Compile Include="StaticClass.cs" />
     <Compile Include="ViewModel\BodyCompositionViewModel.cs" />
     <Compile Include="ViewModel\ExerciseProgramViewModel.cs" />

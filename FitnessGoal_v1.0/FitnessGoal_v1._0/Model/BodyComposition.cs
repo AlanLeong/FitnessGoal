@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace FitnessGoal_v1._0.Model
+namespace FitnessGoal_v1._0
 {
     public class BodyComposition
     {

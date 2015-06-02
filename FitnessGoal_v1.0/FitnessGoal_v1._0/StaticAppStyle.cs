@@ -73,6 +73,30 @@ namespace FitnessGoal_v1._0
             }
         }
 
+        public static Style LabelStyle2
+        {
+            get
+            {
+                return new Style(typeof(Label))
+                {
+                    Setters = 
+                    {
+                        new Setter {Property = Label.BackgroundColorProperty, Value = Color.Gray},
+                        new Setter {Property = Label.FontSizeProperty, Value = 18},
+                        new Setter {Property = Label.VerticalOptionsProperty, Value = LayoutOptions.FillAndExpand},
+                        new Setter {Property = Label.HorizontalOptionsProperty, Value = LayoutOptions.FillAndExpand},
+                        //new Setter {Property = Label.XAlignProperty, Value = LayoutOptions.FillAndExpand},
+                        //new Setter {Property = Label.YAlignProperty, Value = LayoutOptions.FillAndExpand},
+                        new Setter {Property = Label.TextColorProperty, Value = Color.White},
+                        new Setter {Property = Label.HeightRequestProperty, Value = 50},
+                        new Setter {Property = Label.TextProperty, Value = 18},
+                        new Setter {Property = Label.XAlignProperty, Value = TextAlignment.Center},
+                        new Setter {Property = Label.YAlignProperty, Value = TextAlignment.Center}
+                    }
+                };
+            }
+        }
+
         public static Style NavigationLabelStyle 
         {
             get 

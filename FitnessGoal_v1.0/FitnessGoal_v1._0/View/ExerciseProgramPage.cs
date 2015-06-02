@@ -14,12 +14,55 @@ namespace FitnessGoal_v1._0
         {
             Title = "Exercise Program";
 
-            Content = new StackLayout
+            StackLayout layout1 = new StackLayout
             {
-                Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
+                VerticalOptions = LayoutOptions.StartAndExpand
+                
             };
+
+            Label ExerciseProgramTitle = new Label
+            {
+                Text = "Exercise Program 1",
+                Style = StaticAppStyle.LabelStyle,
+                //TextColor = Color.White,
+                FontSize = 20
+            };
+
+            Label cardio = new Label 
+            {
+                Text = "Cardio 30mins",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label bicep = new Label
+            {
+                Text = "Bicep - Dumbell Curl - 4sets - 6 reps - 15kg",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label chest = new Label
+            {
+                Text = "Chest - Bench Press - 4sets - 6 reps - 15kg",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label shoulder = new Label
+            {
+                Text = "Shoulder - Incline Presss - 4sets - 6 reps - 15kg",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            layout1.Children.Add(ExerciseProgramTitle);
+            layout1.Children.Add(cardio);
+            layout1.Children.Add(bicep);
+            layout1.Children.Add(chest);
+            layout1.Children.Add(shoulder);
+
+            Content = layout1;
         }
     }
 }

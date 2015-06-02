@@ -15,40 +15,8 @@ namespace FitnessGoal_v1._0
         {
             Title = "My Profile";
 
-            StackLayout layout1 = new StackLayout() 
+            StackLayout imagelayout = new StackLayout()
             {
-                Padding = new Thickness(40, 0, 40, 0),
-                Orientation = StackOrientation.Horizontal,
-                BackgroundColor = StaticAppStyle.MenuColour,
-                Children = 
-                {
-                    new Label()
-                    {
-
-                        Text = Registration.Current,
-                        TextColor = Color.White,
-                        VerticalOptions = LayoutOptions.FillAndExpand,
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        XAlign = TextAlignment.Center,
-                        YAlign = TextAlignment.Center,
-                        //Style = TextAlignment.Center,
-                        //Style = StaticAppStyle.LabelStyle,
-                        //BackgroundColor = StaticAppStyle.MenuColour,
-                        FontSize = 18
-                    }
-                }
-            };
-
-            StackLayout layout2 = new StackLayout() 
-            {
-                VerticalOptions = LayoutOptions.Center,
-                Padding = new Thickness(40, 0, 40, 0)
-            };
-
-            StackLayout layout3 = new StackLayout()
-            {
-                //Padding = new Thickness(60, 60, 60, 60),
-                
                 Orientation = StackOrientation.Horizontal,
                 HeightRequest = 150,
                 WidthRequest = 150,
@@ -59,7 +27,6 @@ namespace FitnessGoal_v1._0
                 {
                     new Image
                     {
-                      //Will take pic from databse
                       Source = ImageSource.FromFile("UserDetail.png"),
                       Aspect = Aspect.AspectFit
                     
@@ -67,84 +34,173 @@ namespace FitnessGoal_v1._0
                 }
             };
 
-            StackLayout layoutbmi = new StackLayout()
+            StackLayout main = new StackLayout 
             {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Padding = new Thickness(30,0,30,0)
+            };
+
+            StackLayout vertical1 = new StackLayout 
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
                 Orientation = StackOrientation.Horizontal
-                //HorizontalOptions = LayoutOptions.Center,
-                //VerticalOptions = LayoutOptions.Center
-
             };
 
-            StackLayout layoutALL = new StackLayout()
+            StackLayout vertical2 = new StackLayout
             {
-                VerticalOptions = LayoutOptions.Start
-
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
             };
 
-            Button btnBMI = new Button()
+            StackLayout vertical3 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical4 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical5 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical6 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+
+            Label username = new Label 
+            {
+                Text = Registration.Current,
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.MenuColour,
+                TextColor = Color.White
+            };
+
+            Label lblBMI = new Label()
             {
                 Text = "User BMI",
-                Style = StaticAppStyle.Button01,
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
-            Button btnBFP = new Button()
+            Label lblBFP = new Label()
             {
                 Text = "User BFP",
-                Style = StaticAppStyle.Button01,
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
             Label lbltargetBMI = new Label()
             {
-                Text = "User BMI GOAL",
-                TextColor = Color.Blue,
-                BackgroundColor = Color.White,
-                XAlign = TextAlignment.Center
+                Text = "BMI GOAL",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
             Label lbltargetBFP = new Label()
             {
-                Text = "User BFP GOAL",
-                TextColor = Color.Blue,
-                BackgroundColor = Color.White,
-                XAlign = TextAlignment.Center
+                Text = "BFP GOAL",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
             Label lblGender = new Label()
             {
-                Text = "Male",
-                TextColor = Color.Blue,
-                BackgroundColor = Color.White,
-                XAlign = TextAlignment.Center
+                Text = "Gender",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20 ,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
-            Label lbldob = new Label()
+            Label lblage = new Label()
             {
-                Text = "22",
-                TextColor = Color.Blue,
-                BackgroundColor = Color.White,
-                XAlign = TextAlignment.Center,
+                Text = "Age",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
             };
 
-            
-            layout2.Children.Add(layout1);
-            layout2.Children.Add(lblGender);
-            layout2.Children.Add(lbldob);
-            layoutbmi.Children.Add(btnBMI);
-            layoutbmi.Children.Add(btnBFP);
-            layout2.Children.Add(layoutbmi);
-            layout2.Children.Add(lbltargetBMI);
-            layout2.Children.Add(lbltargetBFP);
-           
-            layoutALL.Children.Add(layout3);
-            layoutALL.Children.Add(layout2);
+            Label lblgetage = new Label()
+            {
+                Text = "Get Age",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
 
-            Content = layoutALL;
+            Label lblgetgender = new Label()
+            {
+                Text = "Get Gender",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
 
-            btnBMI.Clicked += btnBMI_Clicked;
-            btnBFP.Clicked += btnBFP_Clicked;
-            
+            Label lblgetbmi = new Label()
+            {
+                Text = "Get BMI",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label lblgetbfp = new Label()
+            {
+                Text = "Get BFP",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label lblGetBMIGoal = new Label()
+            {
+                Text = "18.6-24.9 (Kg/m2)",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            Label lblGetBFPGoal = new Label()
+            {
+                Text = "8-19 %",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20
+            };
+
+            vertical1.Children.Add(lblage);
+            vertical1.Children.Add(lblgetage);
+            vertical2.Children.Add(lblGender);
+            vertical2.Children.Add(lblgetgender);
+            vertical3.Children.Add(lblBMI);
+            vertical3.Children.Add(lblgetbmi);
+            vertical4.Children.Add(lblBFP);
+            vertical4.Children.Add(lblgetbfp);
+            vertical5.Children.Add(lbltargetBMI);
+            vertical5.Children.Add(lblGetBMIGoal);
+            vertical6.Children.Add(lbltargetBFP);
+            vertical6.Children.Add(lblGetBFPGoal);
+            main.Children.Add(imagelayout);
+            main.Children.Add(username);
+            main.Children.Add(vertical1);
+            main.Children.Add(vertical2);
+            main.Children.Add(vertical3);
+            main.Children.Add(vertical4);
+            main.Children.Add(vertical5);
+            main.Children.Add(vertical6);
+
+            var scroll = new ScrollView();
+
+            scroll.Content = main;
+            Content = scroll;
         }
 
         public async void btnBMI_Clicked(object sender, EventArgs args)
@@ -156,12 +212,6 @@ namespace FitnessGoal_v1._0
             + "Overweight               25.0 - 29.9\n"
             + "Obese                       30.0 - 39.9\n"
             + "High Risk Obesity    Above 40\n", "Close");
-
-        }
-
-        public async void btnBFP_Clicked(object sender, EventArgs args)
-        {
-            await DisplayAlert("Body Fat Percentage", "Invalid username or password", "Close");
 
         }
 

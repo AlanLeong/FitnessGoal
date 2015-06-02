@@ -49,7 +49,7 @@ namespace FitnessGoal_v1._0
             {
                 title = "My Exercise ",
                 icon = "ExerciseProgram.png",
-                //PageType = typeof(ExerciseMenuPage)
+                PageType = typeof(ExerciseProgramPage)
 
             });
 

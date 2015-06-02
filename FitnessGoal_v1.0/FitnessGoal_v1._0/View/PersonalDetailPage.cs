@@ -159,7 +159,7 @@ namespace FitnessGoal_v1._0
             layout2.Children.Add(Eheight);
             layout2.Children.Add(Eweight);
             layout2.Children.Add(savebtn);
-            layout2.Children.Add(testbtn);
+            //layout2.Children.Add(testbtn);
             layoutALL.Children.Add(layout3);
             layoutALL.Children.Add(layout2);
 
@@ -167,17 +167,17 @@ namespace FitnessGoal_v1._0
             Content = scroll;
 
             savebtn.Clicked += savebtn_Clicked;
-            testbtn.Clicked += textbtn_Clicked;
+            //testbtn.Clicked += textbtn_Clicked;
         }
 
         //testing
-        public async void textbtn_Clicked(object sender, EventArgs args)
-        {
-            StaticClass.RegistrationID = await lvm.GetuserID(Registration.Current);
-            //StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
-            await DisplayAlert("Testing", StaticClass.RegistrationID , "Close");
+        //public async void textbtn_Clicked(object sender, EventArgs args)
+        //{
+        //    StaticClass.RegistrationID = await lvm.GetuserID(Registration.Current);
+        //    //StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
+        //    await DisplayAlert("Testing", StaticClass.RegistrationID , "Close");
         
-        }
+        //}
 
         public async void savebtn_Clicked(object sender, EventArgs args)
         {
@@ -212,10 +212,6 @@ namespace FitnessGoal_v1._0
             {
                 await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
             }
-            //else if (!EGender.Text.Equals("F"))
-            //{
-            //    await DisplayAlert("Alert", "Please enter gender\n'M' = Male\n'F' = Female", "Close");
-            //}
             else
             {
                 //start putting data into list after validation

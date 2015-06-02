@@ -32,14 +32,6 @@ namespace FitnessGoal_v1._0
         {
             try 
             {
-                //PersonalDetailModel test = new PersonalDetailModel
-                //{
-                //    gender = "M",
-                //    age = 22,
-                //    status = "Active",
-                //    RegistrationFK_ID = "FDA107AE-C298-430D-9A13-34B503EB6E11"
-                //};
-                //Debug.WriteLine("42");
                 await PersonalDetailTable.InsertAsync(p);
                 await BodyCompositionTable.InsertAsync(bc);
                 //Debug.WriteLine("45");
