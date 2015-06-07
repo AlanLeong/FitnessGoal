@@ -92,7 +92,29 @@ namespace FitnessGoal_v1._0
                         new Setter {Property = Label.TextProperty, Value = 18},
                         new Setter {Property = Label.XAlignProperty, Value = TextAlignment.Center},
                         new Setter {Property = Label.YAlignProperty, Value = TextAlignment.Center},
-                        new Setter {Property = Label.WidthRequestProperty, Value = 30}
+                        new Setter {Property = Label.WidthRequestProperty, Value = 5}
+                    }
+                };
+            }
+        }
+
+        public static Style EntryStyle
+        {
+            get
+            {
+                return new Style(typeof(Entry))
+                {
+                    Setters = 
+                    {
+                        new Setter {Property = Entry.BackgroundColorProperty, Value = Color.White},
+                        new Setter {Property = Entry.VerticalOptionsProperty, Value = LayoutOptions.FillAndExpand},
+                        new Setter {Property = Entry.HorizontalOptionsProperty, Value = LayoutOptions.FillAndExpand},
+                        new Setter {Property = Entry.TextColorProperty, Value = Color.Black},
+                        new Setter {Property = Entry.HeightRequestProperty, Value = 50},
+                        new Setter {Property = Entry.TextProperty, Value = 10},
+                        //new Setter {Property = Entry.XAlignProperty, Value = TextAlignment.Center},
+                       // new Setter {Property = Entry.YAlignProperty, Value = TextAlignment.Center},
+                        new Setter {Property = Entry.WidthRequestProperty, Value = 10}
                     }
                 };
             }

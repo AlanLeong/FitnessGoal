@@ -46,20 +46,34 @@ namespace FitnessGoal_v1._0
             }
         }
 
-
-
-        async public Task<string> GetPersonalDetailID(PersonalDetail pdm)
+        async public Task<string> GetPersonalDetailID(string item)
         {
             try
             {
 
                 personaldetailList = await PersonalDetailTable.ToListAsync();
 
-                return personaldetailList.Find(a => a.RegistrationFK_ID == pdm.RegistrationFK_ID).PersonalDetail_ID;
+                return personaldetailList.Find(a => a.RegistrationFK_ID == item).PersonalDetail_ID;
+                    //pdm.RegistrationFK_ID).PersonalDetail_ID;
             }
             catch (Exception e)
             {
                 return null;
+            }
+        }
+
+        async public void UpdateProfileList(PersonalDetail item)
+        {
+            try 
+            {
+                await PersonalDetailTable.UpdateAsync(item);
+
+               // return personaldetailList.First();
+
+            }
+            catch (Exception e) 
+            {
+                //return null;
             }
         }
 

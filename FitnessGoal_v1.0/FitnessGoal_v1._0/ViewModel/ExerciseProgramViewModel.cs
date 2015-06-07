@@ -13,6 +13,9 @@ namespace FitnessGoal_v1._0.ViewModel
     {
         private MobileServiceClient client;
         private IMobileServiceTable<ExerciseProgramModel> ExerciseProgramTable;
+        private IMobileServiceTable<Bicep_Exe> BicepExeTable;
+        private IMobileServiceTable<Bicep_SetRep> BicepsetRepTable;
+        private IMobileServiceTable<BicepExe_BicepSetRep> BicepExeSetRepTable;
 
         public List<ExerciseProgramModel> ExerciseProgramList { get; private set; }
 

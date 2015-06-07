@@ -38,5 +38,20 @@ namespace FitnessGoal_v1._0
                 return null;
             }
         }
+
+        async public void UpdateBodyComposition(BodyComposition item)
+        {
+            try
+            {
+                await BodyCompositionTable.UpdateAsync(item);
+
+                // return personaldetailList.First();
+
+            }
+            catch (Exception e)
+            {
+                //return null;
+            }
+        }
     }
 }

@@ -14,67 +14,62 @@ namespace FitnessGoal_v1._0
         public static PersonalDetail pdm;
         public static BodyComposition bcm;
         PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+        BodyCompositionViewModel bcvm = new BodyCompositionViewModel();
         LoginViewModel lvm = new LoginViewModel();
+    
         float bmi, bfp, f1, f2, f3, f4, f5, leanbodymass, bodyfatweight;
 
         Entry Eage = new Entry()
         {
             Placeholder = "Age",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry EWaist = new Entry()
         {
-            Placeholder = "Waist Measurement",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry EHip = new Entry()
         {
-            Placeholder = "Hip Measurement",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry Eforearm = new Entry()
         {
-            Placeholder = "Forearm Measurement",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry Eheight = new Entry()
         {
-            Placeholder = "Height Measurement",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry Eweight = new Entry()
         {
-            Placeholder = "Weight Measurement",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle
         };
 
         Entry EGender = new Entry()
         {
             Placeholder = "Gender",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Style = StaticAppStyle.EntryStyle
         };
 
-        Entry EEmail = new Entry()
+        Entry EWaist2 = new Entry()
         {
-            Placeholder = "Email",
-            TextColor = Color.Black,
-            BackgroundColor = Color.White
+            Placeholder = "Measurement",
+            Style = StaticAppStyle.EntryStyle,
         }; 
 
         public PersonalDetailPage()
         {
+            getPersonalDetail();
 
             Title = "Personal Detail";
 
@@ -82,7 +77,7 @@ namespace FitnessGoal_v1._0
 
             StackLayout layout1 = new StackLayout()
             {
-                Padding = new Thickness(40, 0, 40, 0),
+                //Padding = new Thickness(40, 0, 40, 0),
                 Orientation = StackOrientation.Horizontal,
                 BackgroundColor = StaticAppStyle.MenuColour,
                 Children = 
@@ -102,12 +97,6 @@ namespace FitnessGoal_v1._0
                         FontSize = 18
                     }
                 }
-            };
-
-            StackLayout layout2 = new StackLayout()
-            {
-                VerticalOptions = LayoutOptions.Center,
-                Padding = new Thickness(40, 0, 40, 0)
             };
 
             StackLayout layout3 = new StackLayout()
@@ -132,8 +121,57 @@ namespace FitnessGoal_v1._0
 
             StackLayout layoutALL = new StackLayout()
             {
-                VerticalOptions = LayoutOptions.Start
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                //Padding = new Thickness(30,0,30,0)
 
+            };
+
+            StackLayout vertical1 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical2 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical3 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical4 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical5 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical6 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical7 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
+            };
+
+            StackLayout vertical8 = new StackLayout
+            {
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Orientation = StackOrientation.Horizontal
             };
 
             Button savebtn = new Button()
@@ -142,45 +180,121 @@ namespace FitnessGoal_v1._0
                 Style = StaticAppStyle.Button01
             };
 
-            //for testing
-            Button testbtn = new Button()
+            Button updatebtn = new Button() 
             {
-                Text = "Test",
+                Text = "Update",
                 Style = StaticAppStyle.Button01
             };
 
-            layout2.Children.Add(layout1);
-            layout2.Children.Add(EGender);
-            layout2.Children.Add(EEmail);
-            layout2.Children.Add(Eage);
-            layout2.Children.Add(EHip);
-            layout2.Children.Add(EWaist);
-            layout2.Children.Add(Eforearm);
-            layout2.Children.Add(Eheight);
-            layout2.Children.Add(Eweight);
-            layout2.Children.Add(savebtn);
-            //layout2.Children.Add(testbtn);
+            Label lblage = new Label()
+            {
+                Text = "Age",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblgender = new Label()
+            {
+                Text = "Gender",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblhip = new Label()
+            {
+                Text = "Hip ",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblwaist = new Label()
+            {
+                Text = "Waist ",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblwaist2 = new Label()
+            {
+                Text = "Waist  *till naval",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblforearm = new Label()
+            {
+                Text = "Forearm ",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblheight = new Label()
+            {
+                Text = "Hight ",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            Label lblweight = new Label()
+            {
+                Text = "Weight ",
+                Style = StaticAppStyle.LabelStyle2,
+                FontSize = 20,
+                BackgroundColor = StaticAppStyle.ThemeColor
+            };
+
+            vertical1.Children.Add(lblgender);
+            vertical1.Children.Add(EGender);
+            vertical2.Children.Add(lblage);
+            vertical2.Children.Add(Eage);
+            vertical3.Children.Add(lblhip);
+            vertical3.Children.Add(EHip);
+            vertical4.Children.Add(lblwaist);
+            vertical4.Children.Add(EWaist);
+            vertical5.Children.Add(lblwaist2);
+            vertical5.Children.Add(EWaist2);
+            vertical6.Children.Add(lblforearm);
+            vertical6.Children.Add(Eforearm);
+            vertical7.Children.Add(lblheight);
+            vertical7.Children.Add(Eheight);
+            vertical8.Children.Add(lblweight);
+            vertical8.Children.Add(Eweight);
+            
             layoutALL.Children.Add(layout3);
-            layoutALL.Children.Add(layout2);
+            layoutALL.Children.Add(layout1);
+            layoutALL.Children.Add(vertical1);
+            layoutALL.Children.Add(vertical2);
+            layoutALL.Children.Add(vertical3);
+            layoutALL.Children.Add(vertical4);
+            layoutALL.Children.Add(vertical5);
+            layoutALL.Children.Add(vertical6);
+            layoutALL.Children.Add(vertical7);
+            layoutALL.Children.Add(vertical8);
+
+            layoutALL.Children.Add(savebtn);
+            layoutALL.Children.Add(updatebtn);
 
             scroll.Content = layoutALL;
             Content = scroll;
 
             savebtn.Clicked += savebtn_Clicked;
-            //testbtn.Clicked += textbtn_Clicked;
+            updatebtn.Clicked += updatebtn_Clicked;
+ 
         }
-
-        //testing
-        //public async void textbtn_Clicked(object sender, EventArgs args)
-        //{
-        //    StaticClass.RegistrationID = await lvm.GetuserID(Registration.Current);
-        //    //StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(pdm);
-        //    await DisplayAlert("Testing", StaticClass.RegistrationID , "Close");
-        
-        //}
 
         public async void savebtn_Clicked(object sender, EventArgs args)
         {
+            //if personaldetail & Bodycomposition list count >1 (true)
+            //then update
+            //else insert
+
             //to calculate bfp
             if (EGender.Text.Equals("M"))
             {
@@ -247,7 +361,10 @@ namespace FitnessGoal_v1._0
 
                     }
                     else
+                    {
                         await DisplayAlert("Alert", "Failed to save", "Close");
+                    }
+                        //StaticClass.PersonalDetailID = await.pdvm.GetPersonalDetailID(StaticClass.RegistrationID);
 
                 }
                 catch (Exception e)
@@ -255,6 +372,35 @@ namespace FitnessGoal_v1._0
                     throw;
                 }
             }      
+        }
+
+        public async void updatebtn_Clicked(object sender, EventArgs args) 
+        {
+            pdvm.UpdateProfileList(pdm);
+            bcvm.UpdateBodyComposition(bcm);
+            await DisplayAlert("Success", "Profile Updated", "Close");
+        }
+
+        public async void getPersonalDetail()
+        {
+            pdm = await pdvm.GetMyProfileList(StaticClass.RegistrationID);
+            bcm = await bcvm.GetMyCompositionList(StaticClass.RegistrationID);
+            EGender.BindingContext = pdm;
+            EGender.SetBinding(Entry.TextProperty, "age");
+            Eage.BindingContext = pdm;
+            Eage.SetBinding(Entry.TextProperty, "gender");
+            EHip.BindingContext = bcm;
+            EHip.SetBinding(Entry.TextProperty, "hip");
+            EWaist.BindingContext = bcm;
+            EWaist.SetBinding(Entry.TextProperty, "waist");
+            //EWaist2.BindingContext = bcm;
+            //EWaist2.SetBinding(Entry.TextProperty, "waist2");
+            Eforearm.BindingContext = bcm;
+            Eforearm.SetBinding(Entry.TextProperty, "forearm");
+            Eheight.BindingContext = bcm;
+            Eheight.SetBinding(Entry.TextProperty, "height");
+            Eweight.BindingContext = bcm;
+            Eweight.SetBinding(Entry.TextProperty, "weight");
         }
     }
 }
