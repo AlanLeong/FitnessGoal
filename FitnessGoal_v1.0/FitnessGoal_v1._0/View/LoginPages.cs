@@ -14,6 +14,8 @@ namespace FitnessGoal_v1._0
     { 
         public static Registration login;
         LoginViewModel LVM = new LoginViewModel();
+        BodyCompositionViewModel bdvm = new BodyCompositionViewModel();
+        PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
 
         Entry Eusername = new Entry()
         {
@@ -125,6 +127,8 @@ namespace FitnessGoal_v1._0
                 }
                     
                 StaticClass.RegistrationID = await LVM.GetuserID(Registration.Current);
+                StaticClass.BodyCompositionID = await bdvm.GetBodyCompositionID(StaticClass.RegistrationID);
+                StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(StaticClass.RegistrationID);
             }
             catch (Exception e) 
             {

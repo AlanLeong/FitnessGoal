@@ -39,6 +39,21 @@ namespace FitnessGoal_v1._0
             }
         }
 
+        //Get Body Composition ID
+        async public Task<string> GetBodyCompositionID(string r)
+        {
+            try
+            {
+                bodycompositionList = await BodyCompositionTable.ToListAsync();
+
+                return bodycompositionList.Find(a => a.RegistrationFK_ID == r).BodyComposition_ID;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         async public void UpdateBodyComposition(BodyComposition item)
         {
             try

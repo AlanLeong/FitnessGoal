@@ -63,7 +63,7 @@ namespace FitnessGoal_v1._0
 
             menulist.Add(new MenuList()
             {
-                title = "Set Notification",
+                title = "Chat Room",
                 icon = "Notification.png",
                 PageType = typeof(PersonalDetailPage)
 
