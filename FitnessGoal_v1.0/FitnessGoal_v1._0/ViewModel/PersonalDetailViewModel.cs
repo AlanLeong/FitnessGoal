@@ -16,9 +16,10 @@ namespace FitnessGoal_v1._0
         private IMobileServiceTable<PersonalDetail> PersonalDetailTable;
         private IMobileServiceTable<Registration> RegistrationTable;
         private IMobileServiceTable<BodyComposition> BodyCompositionTable;
+        //private IMobileServiceTable<ExerciseProgramModel> ExerciseProgramTable;
 
         public List<PersonalDetail> personaldetailList { get; private set; }
-        
+        //public List<ExerciseProgramModel> ExerciseProgramList { get; private set; }
 
         public PersonalDetailViewModel() 
         {
@@ -27,6 +28,7 @@ namespace FitnessGoal_v1._0
             PersonalDetailTable = client.GetTable<PersonalDetail>();
             RegistrationTable = client.GetTable<Registration>();
             BodyCompositionTable = client.GetTable<BodyComposition>();
+            
         }
 
         //Add PersonalDetail function
@@ -93,5 +95,8 @@ namespace FitnessGoal_v1._0
                 return null;
             }
         }
+
+
     }
+
 }

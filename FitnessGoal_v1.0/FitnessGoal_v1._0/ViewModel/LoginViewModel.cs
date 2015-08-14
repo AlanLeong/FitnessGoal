@@ -99,18 +99,18 @@ namespace FitnessGoal_v1._0
 
 
         //Retrieve program ID
-        //async public Task<string> GetProgramID(string r)
-        //{
-        //    try 
-        //    {
-        //        registrationList = await registrationTable.ToListAsync();
+        async public Task<string> GetProgramID(string r)
+        {
+            try
+            {
+                registrationList = await registrationTable.ToListAsync();
 
-        //        return registrationList.Find(a => a.Registration_ID == r).ExerciseProgram_ID;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return null;
-        //    }
-        //}
+                return registrationList.Find(a => a.Registration_ID == r).ExerciseProgram_ID;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }    
 }

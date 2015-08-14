@@ -127,6 +127,7 @@ namespace FitnessGoal_v1._0
                 }
                     
                 StaticClass.RegistrationID = await LVM.GetuserID(Registration.Current);
+                StaticClass.ExerciseProgramID = await LVM.GetProgramID(StaticClass.RegistrationID);
                 StaticClass.BodyCompositionID = await bdvm.GetBodyCompositionID(StaticClass.RegistrationID);
                 StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(StaticClass.RegistrationID);
             }

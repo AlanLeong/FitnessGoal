@@ -1,15 +1,20 @@
-﻿using System;
+﻿using FitnessGoal_v1._0.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace FitnessGoal_v1._0
 {
     public class ExerciseProgramPage : ContentPage
     {
+        public static Registration register;
+        LoginViewModel lvm = new LoginViewModel();
+        BodyCompositionViewModel bcvm = new BodyCompositionViewModel();
+        ExerciseProgramViewModel epvm = new ExerciseProgramViewModel();
+
         public ExerciseProgramPage()
         {
             Title = "Exercise Program";
@@ -72,6 +77,13 @@ namespace FitnessGoal_v1._0
                 HorizontalOptions = LayoutOptions.Fill
             };
 
+            Button getexercisebtn = new Button()
+            {
+                Style = StaticAppStyle.Button01,
+                Text = "Get Exercise! ",
+
+            };
+
             layout1.Children.Add(ExerciseProgramTitle);
             layout1.Children.Add(cardio);
             layout1.Children.Add(bicep);
@@ -80,7 +92,23 @@ namespace FitnessGoal_v1._0
             layout2.Children.Add(settime);
             layout2.Children.Add(time);
             layout1.Children.Add(layout2);
+            layout1.Children.Add(getexercisebtn);
             Content = layout1;
         }
+
+        public async void testbtn_Clicked(object sender, EventArgs args)
+        {
+            try
+            {
+                int x;
+                x = await epvm.ValidateExerciseProgram(StaticClass.RegistrationID);
+                
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -68,5 +68,27 @@ namespace FitnessGoal_v1._0
                 //return null;
             }
         }
+
+        async public Task<int> ValidateButton(string b)
+        {
+            try
+            {
+                bodycompositionList = await BodyCompositionTable
+                    .Where(a => a.RegistrationFK_ID == b).ToListAsync();
+
+                if (bodycompositionList.Count > 0)
+                {
+                    return bodycompositionList.Count;
+                }
+                else 
+                {
+                    return bodycompositionList.Count;
+                }
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
     }
 }
