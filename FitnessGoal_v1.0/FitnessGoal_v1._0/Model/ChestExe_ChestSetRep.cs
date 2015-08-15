@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    class ChestExe_ChestSetRep
+    public class ChestExe_ChestSetRep
     {
         public ChestExe_ChestSetRep() { }
 

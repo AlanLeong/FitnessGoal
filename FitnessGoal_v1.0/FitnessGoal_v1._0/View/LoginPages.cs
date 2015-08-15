@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using FitnessGoal_v1._0.ViewModel;
 
 namespace FitnessGoal_v1._0
 {
@@ -16,6 +17,7 @@ namespace FitnessGoal_v1._0
         LoginViewModel LVM = new LoginViewModel();
         BodyCompositionViewModel bdvm = new BodyCompositionViewModel();
         PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+        ExerciseProgramViewModel epvm = new ExerciseProgramViewModel();
 
         Entry Eusername = new Entry()
         {
@@ -130,6 +132,15 @@ namespace FitnessGoal_v1._0
                 StaticClass.ExerciseProgramID = await LVM.GetProgramID(StaticClass.RegistrationID);
                 StaticClass.BodyCompositionID = await bdvm.GetBodyCompositionID(StaticClass.RegistrationID);
                 StaticClass.PersonalDetailID = await pdvm.GetPersonalDetailID(StaticClass.RegistrationID);
+                StaticClass.Bicep_ExeSetRepID = await epvm.GetEPbicep_SetRepID(StaticClass.ExerciseProgramID);
+                StaticClass.Chest_ExeSetRepID = await epvm.GetEPchest_SetRepID(StaticClass.ExerciseProgramID);
+                StaticClass.Shoulder_ExeSetRepID = await epvm.GetEPshoulder_SetRepID(StaticClass.ExerciseProgramID);
+                StaticClass.Bicep_ExeID = await epvm.GetBicepExe_ID(StaticClass.Bicep_ExeSetRepID);
+                StaticClass.Bicep_SetRepID = await epvm.GetBicep_SetRepID(StaticClass.Bicep_ExeSetRepID);
+                StaticClass.Chest_ExeID = await epvm.GetChestExe_ID(StaticClass.Chest_ExeSetRepID);
+                StaticClass.Chest_SetRepID = await epvm.GetChest_SetRepID(StaticClass.Chest_ExeSetRepID);
+                StaticClass.Shoulder_ExeID = await epvm.GetShoulderExe_ID(StaticClass.Shoulder_ExeSetRepID);
+                StaticClass.Shoulder_SetRepID = await epvm.GetShoulder_SetRepID(StaticClass.Shoulder_ExeSetRepID);
             }
             catch (Exception e) 
             {

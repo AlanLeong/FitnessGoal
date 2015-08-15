@@ -5,6 +5,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace FitnessGoal_v1._0
 {
@@ -110,6 +111,36 @@ namespace FitnessGoal_v1._0
             catch (Exception e)
             {
                 return null;
+            }
+        }
+
+        //Get Registration list
+        async public Task<Registration> GetRegistrationList(string ID)
+        {
+            try
+            {
+                registrationList = await registrationTable
+                    .Where(a => a.Registration_ID == ID)
+                    .ToListAsync();
+
+                return registrationList.First();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        //update registration list
+        async public void UpdateRegistration(Registration item)
+        {
+            try
+            {
+                await registrationTable.UpdateAsync(item);
+            }
+            catch (Exception e)
+            { 
+                
             }
         }
     }    

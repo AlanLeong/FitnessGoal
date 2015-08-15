@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    class Shoulder_SetRep
+    public class Shoulder_SetRep
     {
         public Shoulder_SetRep() { }
 

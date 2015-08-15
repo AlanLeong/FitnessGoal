@@ -462,8 +462,10 @@ namespace FitnessGoal_v1._0
             bcm = await bcvm.GetMyCompositionList(StaticClass.RegistrationID);
             EGender.BindingContext = pdm;
             EGender.SetBinding(Entry.TextProperty, "gender");
+
             Eage.BindingContext = pdm;
             Eage.SetBinding(Entry.TextProperty, "age");
+
             EHip.BindingContext = bcm;
             EHip.SetBinding(Entry.TextProperty, "hip");
             EWaist.BindingContext = bcm;
@@ -486,6 +488,7 @@ namespace FitnessGoal_v1._0
                 x = await bcvm.ValidateButton(StaticClass.RegistrationID);
                 if (x > 0)
                 {
+                    //Update
                     //to calculate bfp
                     if (EGender.Text.Equals("M"))
                     {
@@ -552,9 +555,7 @@ namespace FitnessGoal_v1._0
                 }
                 else 
                 {
-                    //if personaldetail & Bodycomposition list count >1 (true)
-                    //then update
-                    //else insert
+                   //Insert
 
                     //to calculate bfp
                     if (EGender.Text.Equals("M"))

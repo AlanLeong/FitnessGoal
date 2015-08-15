@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    class Chest_Exe
+    public class Chest_Exe
     {
         public Chest_Exe() { }
 

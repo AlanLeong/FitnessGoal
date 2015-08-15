@@ -63,14 +63,6 @@ namespace FitnessGoal_v1._0
 
             menulist.Add(new MenuList()
             {
-                title = "Chat Room",
-                icon = "Notification.png",
-                PageType = typeof(PersonalDetailPage)
-
-            });
-
-            menulist.Add(new MenuList()
-            {
                 title = "Tutorial Video",
                 icon = "Search.png",
                 PageType = typeof(VideoPage)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    class StaticClass
+    public class StaticClass
     {
         public static string RegistrationID;
         public static string PersonalDetailID;
