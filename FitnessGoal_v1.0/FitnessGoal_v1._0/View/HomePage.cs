@@ -1,17 +1,24 @@
-﻿using System;
+﻿using FitnessGoal_v1._0.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace FitnessGoal_v1._0
 {
     public class HomePage : ContentPage
     {
+        public static Registration login;
+        LoginViewModel LVM = new LoginViewModel();
+        BodyCompositionViewModel bdvm = new BodyCompositionViewModel();
+        PersonalDetailViewModel pdvm = new PersonalDetailViewModel();
+        ExerciseProgramViewModel epvm = new ExerciseProgramViewModel();
+
         public HomePage()
         {
+            //getstaticclass();
             Title = "Home Page";
 
             StackLayout layout1 = new StackLayout()

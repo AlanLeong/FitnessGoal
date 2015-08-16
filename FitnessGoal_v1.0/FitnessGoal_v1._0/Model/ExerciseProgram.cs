@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FitnessGoal_v1._0
 {
-    public class ExerciseProgramModel
+    public class ExerciseProgram
     {
 
-        public ExerciseProgramModel() { }
+        public ExerciseProgram() { }
 
         [JsonProperty(PropertyName = "ID")]
         public string ExerciseProgram_ID { get; set; }

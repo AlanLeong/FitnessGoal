@@ -51,7 +51,9 @@ namespace FitnessGoal_v1._0
                         HorizontalOptions = LayoutOptions.End,
                         VerticalOptions = LayoutOptions.End,
                         FontSize = 19,
-                        Command = new Command(() => Navigation.PushModalAsync(new LoginPages()))
+                        //Command = new Command(() => Navigation.PushModalAsync(new LoginPages()))
+                        Command = new Command(() => Clear())
+                        
                     }
                 }
             };
@@ -65,6 +67,28 @@ namespace FitnessGoal_v1._0
             layout.Children.Add(Menu);
 
             Content = layout;
+        }
+
+        private void Clear()
+        {
+            StaticClass.RegistrationID = null;
+            StaticClass.PersonalDetailID = null;
+            StaticClass.BodyCompositionID = null;
+            StaticClass.ProgressReportID = null;
+            StaticClass.ExerciseProgramID = null;
+            StaticClass.Bicep_ExeID = null;
+            StaticClass.Bicep_SetRepID = null;
+            StaticClass.Bicep_ExeSetRepID = null;
+            StaticClass.Chest_ExeID = null;
+            StaticClass.Chest_SetRepID = null;
+            StaticClass.Chest_ExeSetRepID = null;
+            StaticClass.Shoulder_ExeID = null;
+            StaticClass.Shoulder_SetRepID = null;
+            StaticClass.Shoulder_ExeSetRepID = null;
+            StaticClass.biceplbl = null;
+            StaticClass.chestlbl = null;
+            StaticClass.shoulderlbl = null;
+            Navigation.PushModalAsync(new LoginPages());
         }
     }
 }

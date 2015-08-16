@@ -13,11 +13,11 @@ namespace FitnessGoal_v1._0
     {
         private MobileServiceClient client;
         private IMobileServiceTable<Registration> registrationTable;
-        private IMobileServiceTable<ExerciseProgramModel> ExerciseProgramTable;
+        private IMobileServiceTable<ExerciseProgram> ExerciseProgramTable;
 
         //Create list for user
         public List<Registration> registrationList { get; private set; }
-        public List<ExerciseProgramModel> ExerciseProgramList { get; private set; }
+        public List<ExerciseProgram> ExerciseProgramList { get; private set; }
 
         public LoginViewModel() 
         {
@@ -26,7 +26,7 @@ namespace FitnessGoal_v1._0
             //Connect to Azure Mobile Service
             client = new MobileServiceClient("https://fitnessgoal.azure-mobile.net/", "rymfMTjetjFCIgfWZDoOeDDysCxhKc10");
             registrationTable = client.GetTable<Registration>();
-            ExerciseProgramTable = client.GetTable<ExerciseProgramModel>();
+            ExerciseProgramTable = client.GetTable<ExerciseProgram>();
         }
 
         async public Task<int> ValidateLogin(Registration r)
@@ -40,7 +40,7 @@ namespace FitnessGoal_v1._0
                 if (registrationList.Count > 0)
                 {
                     Registration.Current = r.username;
-                    Registration.IsUser = true;
+                    //Registration.IsUser = true;
                     //userid =  
                     return registrationList.Count;
                 }

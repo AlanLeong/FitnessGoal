@@ -11,5 +11,6 @@ namespace FitnessGoal_v1._0.ViewModel
 {
     class ProgressReportViewModel
     {
+
     }
 }

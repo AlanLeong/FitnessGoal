@@ -8,12 +8,12 @@ using System.Diagnostics;
 using FitnessGoal_v1._0.Model;
 using System.Linq;
 
-namespace FitnessGoal_v1._0.ViewModel
+namespace FitnessGoal_v1._0
 {
     class ExerciseProgramViewModel
     {
         private MobileServiceClient client;
-        private IMobileServiceTable<ExerciseProgramModel> ExerciseProgramTable;
+        private IMobileServiceTable<ExerciseProgram> ExerciseProgramTable;
         private IMobileServiceTable<Registration> RegistrationTable;
         private IMobileServiceTable<BodyComposition> BodyCompositionTable;
 
@@ -41,16 +41,28 @@ namespace FitnessGoal_v1._0.ViewModel
         public List<Shoulder_SetRep> shoulder_setreplist { get; private set; }
         public List<ShoulderExe_ShoulderSetRep> shoulder_exesetreplist { get; private set; }
 
-        public List<ExerciseProgramModel> ExerciseProgramList { get; private set; }
+        public List<ExerciseProgram> ExerciseProgramList { get; private set; }
         public List<Registration> RegistrationList {get; private set;}
         public List<BodyComposition> bodycompositionList { get; private set; }
 
         public ExerciseProgramViewModel()
         {
             client = new MobileServiceClient("https://fitnessgoal.azure-mobile.net/", "rymfMTjetjFCIgfWZDoOeDDysCxhKc10");
-            ExerciseProgramTable = client.GetTable<ExerciseProgramModel>();
+            ExerciseProgramTable = client.GetTable<ExerciseProgram>();
             BodyCompositionTable = client.GetTable<BodyComposition>();
-            
+            RegistrationTable = client.GetTable<Registration>();
+
+            BicepExeTable = client.GetTable<Bicep_Exe>();
+            BicepSetRepTable = client.GetTable<Bicep_SetRep>();
+            BicepExeSetRepTable = client.GetTable<BicepExe_BicepSetRep>();
+
+            ChestExeTable = client.GetTable<Chest_Exe>();
+            ChestSetRepTable = client.GetTable<Chest_SetRep>();
+            ChestExeSetRepTable = client.GetTable<ChestExe_ChestSetRep>();
+
+            ShoulderExeTable = client.GetTable<Shoulder_Exe>();
+            ShoulderSetRepTable = client.GetTable<Shoulder_SetRep>();
+            ShoulderExeSetRepTable = client.GetTable<ShoulderExe_ShoulderSetRep>();         
         }
 
 
@@ -232,7 +244,7 @@ namespace FitnessGoal_v1._0.ViewModel
        }
 
         //Get exercise Program List
-       async public Task<ExerciseProgramModel> GetExerciseProgramList(string ID)
+       async public Task<ExerciseProgram> GetExerciseProgramList(string ID)
        {
            try
            {
@@ -343,7 +355,8 @@ namespace FitnessGoal_v1._0.ViewModel
        {
            try
            {
-               ExerciseProgramList = await ExerciseProgramTable.ToListAsync();
+               ExerciseProgramList = await ExerciseProgramTable
+                   .ToListAsync();
 
                return ExerciseProgramList.Find(a => a.ExerciseProgram_ID == r).BicepExeSetRepFK_ID;
            }

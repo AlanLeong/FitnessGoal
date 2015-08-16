@@ -22,6 +22,9 @@ namespace FitnessGoal_v1._0
         public static string Shoulder_ExeID;
         public static string Shoulder_SetRepID;
         public static string Shoulder_ExeSetRepID;
+        public static string biceplbl;
+        public static string chestlbl;
+        public static string shoulderlbl;
         //public static string 
 
     }

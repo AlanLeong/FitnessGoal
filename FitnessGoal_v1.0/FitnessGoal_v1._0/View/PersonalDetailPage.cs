@@ -549,8 +549,8 @@ namespace FitnessGoal_v1._0
 
                         pdvm.UpdateProfileList(pdm);
                         bcvm.UpdateBodyComposition(bcm);
-                        await DisplayAlert("Success", "Profile Updated", "Close");
-                        await Navigation.PushModalAsync(new MasterDetailHome());
+                        await DisplayAlert("Profile Successfully Updated", "Proceeding to Exercise Program", "Close");
+                        await Navigation.PushModalAsync(new ExerciseProgramPage());
                     }
                 }
                 else 
@@ -651,6 +651,11 @@ namespace FitnessGoal_v1._0
                 throw;
             }
         
+        }
+
+        private void navipage()
+        {
+            Navigation.PushModalAsync(new ExerciseProgramPage());
         }
     }
 }
