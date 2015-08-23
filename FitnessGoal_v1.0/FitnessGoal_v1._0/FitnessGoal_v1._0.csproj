@@ -44,6 +44,7 @@
     <Compile Include="Model\ShoulderExe_ShoulderSetRep.cs" />
     <Compile Include="Model\Shoulder_Exe.cs" />
     <Compile Include="Model\Shoulder_SetRep.cs" />
+    <Compile Include="ProgressReportViewCell.cs" />
     <Compile Include="StaticClass.cs" />
     <Compile Include="ViewModel\BodyCompositionViewModel.cs" />
     <Compile Include="ViewModel\ExerciseProgramViewModel.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="View\Map.cs" />
     <Compile Include="View\MyProfilePage.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="View\BodyCompositionPage.cs" />
     <Compile Include="View\ExerciseProgramPage.cs" />
     <Compile Include="View\ForgotPasswordPage.cs" />
     <Compile Include="View\HomePage.cs" />

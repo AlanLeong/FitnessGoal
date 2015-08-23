@@ -24,7 +24,8 @@ namespace FitnessGoal_v1._0
         {
             Placeholder = "Password",
             BackgroundColor = Color.White,
-            TextColor = Color.Black
+            TextColor = Color.Black,
+            IsPassword = true
         };
 
         Entry Eemail = new Entry

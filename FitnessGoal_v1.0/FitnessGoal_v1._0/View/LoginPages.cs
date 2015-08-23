@@ -8,7 +8,6 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Linq;
-using FitnessGoal_v1._0.ViewModel;
 
 namespace FitnessGoal_v1._0
 {
@@ -110,7 +109,7 @@ namespace FitnessGoal_v1._0
             layout2.Children.Add(Epassword);
             layout2.Children.Add(loginbtn);
             layout2.Children.Add(Registerbtn);
-            layout2.Children.Add(Forgotbtn);
+            //layout2.Children.Add(Forgotbtn);
 
             layout1.Children.Add(title);
 

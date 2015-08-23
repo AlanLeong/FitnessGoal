@@ -40,7 +40,7 @@ namespace FitnessGoal_v1._0
             menulist.Add(new MenuList()
             {
                 title = "Personal Detail",     
-                icon = "User.png",
+                icon = "BodyComposition.png",
                 PageType = typeof(PersonalDetailPage)
 
              });
@@ -69,13 +69,13 @@ namespace FitnessGoal_v1._0
 
             });
 
-            menulist.Add(new MenuList()
-            {
-                title = "Map",
-                icon = "Search.png",
-                PageType = typeof(VideoPage)
+            //menulist.Add(new MenuList()
+            //{
+            //    title = "Map",
+            //    icon = "Search.png",
+            //    PageType = typeof(VideoPage)
 
-            });
+            //});
 
             //List , Image got item source, not all also got itemsource
             ItemsSource = menulist;

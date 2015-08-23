@@ -5,7 +5,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FitnessGoal_v1._0.Model;
+using FitnessGoal_v1._0;
 using System.Linq;
 
 namespace FitnessGoal_v1._0

@@ -27,7 +27,8 @@ namespace FitnessGoal_v1._0
                         new Setter {Property = Button.VerticalOptionsProperty, Value = LayoutOptions.EndAndExpand},
                         new Setter {Property = Button.HorizontalOptionsProperty, Value = LayoutOptions.EndAndExpand},
                         new Setter {Property = Button.TextColorProperty, Value = Color.White},
-                        //new Setter {Property = Button.BackgroundColorProperty, Value = Color.Black}
+                        new Setter {Property = Button.BackgroundColorProperty, Value = MenuColour}
+
                     }
                 };
             }

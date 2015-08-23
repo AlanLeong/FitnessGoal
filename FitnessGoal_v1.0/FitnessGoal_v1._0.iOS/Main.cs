@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Microsoft.WindowsAzure;
 using Foundation;
 using UIKit;
 
@@ -14,7 +14,9 @@ namespace FitnessGoal_v1._0.iOS
         {
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
-            UIApplication.Main(args, null, "AppDelegate");
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
+			UIApplication.Main(args, null, "AppDelegate");
+
         }
     }
 }

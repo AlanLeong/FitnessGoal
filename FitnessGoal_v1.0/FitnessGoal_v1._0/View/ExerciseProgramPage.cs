@@ -1,11 +1,10 @@
-﻿using FitnessGoal_v1._0.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using Xamarin.Forms;
-using FitnessGoal_v1._0.Model;
+using FitnessGoal_v1._0;
 
 namespace FitnessGoal_v1._0
 {
@@ -32,6 +31,7 @@ namespace FitnessGoal_v1._0
         LoginViewModel lvm = new LoginViewModel();
         BodyCompositionViewModel bcvm = new BodyCompositionViewModel();
         ExerciseProgramViewModel epvm = new ExerciseProgramViewModel();
+
 
         Label lblExerciseProgramTitle = new Label
         {
@@ -108,8 +108,8 @@ namespace FitnessGoal_v1._0
             layout1.Children.Add(lblbicep);
             layout1.Children.Add(lblchest);
             layout1.Children.Add(lblshoulder);
-            layout2.Children.Add(settime);
-            layout2.Children.Add(time);
+            //layout2.Children.Add(settime);
+            //layout2.Children.Add(time);
             layout1.Children.Add(layout2);
             layout1.Children.Add(getexercisebtn);
             Content = layout1;
@@ -175,7 +175,7 @@ namespace FitnessGoal_v1._0
                         //navigate back to the same page (Act as refresh)
                         refresh();
                     }
-                    else if (bcm.bmi > 18.6 && bcm.bmi < 24.9)
+                    else if (bcm.bmi > 18.6 && bcm.bmi < 24.9999)
                     {
                         //random exercise
                         #region lui random code
@@ -224,7 +224,7 @@ namespace FitnessGoal_v1._0
                         //navigate back to the same page (Act as refresh)
                         refresh();
                     }
-                    else if (bcm.bmi < 18.5)
+                    else if (bcm.bmi < 18.59999)
                     {
                         #region lui random code
                         //initiate the list

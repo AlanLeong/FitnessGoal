@@ -5,7 +5,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
-using FitnessGoal_v1._0.Model;
+using FitnessGoal_v1._0;
 using System.Linq;
 
 namespace FitnessGoal_v1._0
@@ -244,7 +244,7 @@ namespace FitnessGoal_v1._0
        }
 
         //Get exercise Program List
-       async public Task<ExerciseProgram> GetExerciseProgramList(string ID)
+       async public Task<List<ExerciseProgram>> GetExerciseProgramList(string ID)
        {
            try
            {
@@ -252,7 +252,7 @@ namespace FitnessGoal_v1._0
                    .Where(a => a.ExerciseProgram_ID == ID)
                    .ToListAsync();
 
-               return ExerciseProgramList.First();
+               return ExerciseProgramList;
            }
            catch (Exception e)
            {

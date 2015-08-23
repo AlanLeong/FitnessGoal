@@ -125,7 +125,7 @@ namespace FitnessGoal_v1._0
                 {
                     new Image
                     {
-                      Source = ImageSource.FromFile("UserDetail.png"),
+                      Source = ImageSource.FromFile("UserDetail.jpg"),
                       Aspect = Aspect.AspectFit
                     
                     }
@@ -190,12 +190,12 @@ namespace FitnessGoal_v1._0
             vertical2.Children.Add(lblgetgender);
             vertical3.Children.Add(lblBMI);
             vertical3.Children.Add(lblgetbmi);
-            vertical4.Children.Add(lblBFP);
-            vertical4.Children.Add(lblgetbfp);
+            //vertical4.Children.Add(lblBFP);
+            //vertical4.Children.Add(lblgetbfp);
             vertical5.Children.Add(lbltargetBMI);
             vertical5.Children.Add(lblGetBMIGoal);
-            vertical6.Children.Add(lbltargetBFP);
-            vertical6.Children.Add(lblGetBFPGoal);
+            //vertical6.Children.Add(lbltargetBFP);
+            //vertical6.Children.Add(lblGetBFPGoal);
             main.Children.Add(imagelayout);
             main.Children.Add(username);
             main.Children.Add(vertical1);

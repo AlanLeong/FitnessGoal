@@ -5,7 +5,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 
-namespace FitnessGoal_v1._0.Model
+namespace FitnessGoal_v1._0
 {
     public class ProgressReport
     {
@@ -23,10 +23,10 @@ namespace FitnessGoal_v1._0.Model
         [JsonProperty(PropertyName = "status")]
         public string status { get; set; }
 
-        [JsonProperty(PropertyName = "PersonalDetail_ID")]
-        public string PersonalDetailFK_ID { get; set; }
+        [JsonProperty(PropertyName = "Registration_ID")]
+        public string RegistrationFK_ID { get; set; }
 
-        [JsonProperty(PropertyName = "BodyComposition_ID")]
-        public string BodyCompositionFK_ID { get; set; }
+        [JsonProperty(PropertyName = "__createdAt")]
+        public string dateCreated { get; set; }
     }
 }

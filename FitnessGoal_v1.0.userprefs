@@ -1,8 +1,21 @@
-﻿<Properties StartupItem="FitnessGoal_v1.0\FitnessGoal_v1._0.Droid\FitnessGoal_v1._0.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupItem="FitnessGoal_v1.0/FitnessGoal_v1._0.Droid/FitnessGoal_v1._0.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="AppStore|iPhoneSimulator" PreferredExecutionTarget="Android.Nexus 5 (KitKat)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FitnessGoal_v1.0/FitnessGoal_v1._0/View/RegistrationPage.cs">
+    <Files>
+      <File FileName="FitnessGoal_v1.0/FitnessGoal_v1._0.iOS/Main.cs" Line="18" Column="1" />
+      <File FileName="FitnessGoal_v1.0/FitnessGoal_v1._0/View/PersonalDetailPage.cs" Line="268" Column="15" />
+      <File FileName="FitnessGoal_v1.0/FitnessGoal_v1._0/ViewModel/BodyCompositionViewModel.cs" Line="85" Column="1" />
+      <File FileName="FitnessGoal_v1.0/FitnessGoal_v1._0/View/RegistrationPage.cs" Line="27" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/phangkaihao/Desktop/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1._0/View/PersonalDetailPage.cs" line="671" column="1" />
+      <Breakpoint file="/Users/phangkaihao/Desktop/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1._0/View/PersonalDetailPage.cs" line="500" column="22" />
+      <Breakpoint file="/Users/phangkaihao/Desktop/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1._0/ViewModel/BodyCompositionViewModel.cs" line="76" column="1" />
+      <Breakpoint file="/Users/phangkaihao/Desktop/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1._0/ViewModel/BodyCompositionViewModel.cs" line="79" column="1" />
+      <Breakpoint file="/Users/phangkaihao/Desktop/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1.0/FitnessGoal_v1._0/ViewModel/BodyCompositionViewModel.cs" line="83" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
